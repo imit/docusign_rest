@@ -453,7 +453,7 @@ module DocusignRest
       ios = []
       files.each_with_index do |file, index|
         ios << UploadIO.new(
-                 file[:io] || file[:path],
+                 file[:io] || file[:path].to_s,
                  file[:content_type] || 'application/pdf',
                  file[:name],
                  'Content-Disposition' => "file; documentid=#{index + 1}"
